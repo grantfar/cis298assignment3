@@ -3,4 +3,15 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    
+    <string name="name_hint">Beverage Name</string>
+    <string name="price_hint">Price</string>
+    <string name="item_number_hint">Item Number</string>
+    <string name="pack_hint">Pack</string>
+
+    <string name="name_label">Name</string>
+    <string name="price_label">Price:</string>
+    <string name="item_number_label">ID:</string>
+    <string name="pack_label">Pack:</string>
+    <string name="active_label">Active:</string>
 </resources>
