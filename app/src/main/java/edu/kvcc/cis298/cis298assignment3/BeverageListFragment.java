@@ -37,7 +37,7 @@ public class BeverageListFragment extends Fragment {
         mBeverageRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
-
+        //adds seperation lines
         mBeverageRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),RecyclerView.VERTICAL));
 
         mBeverages = BeverageInventory.getBeverageInventory(getContext());
@@ -53,7 +53,7 @@ public class BeverageListFragment extends Fragment {
        beverageAdapter mBeverageAdapter = new beverageAdapter(mBeverages.getInvitory());
         mBeverageRecyclerView.setAdapter(mBeverageAdapter);
     }
-
+    //RecyclerView ViewHolder
     private class beverageHolder extends  RecyclerView.ViewHolder
     implements View.OnClickListener
     {
@@ -74,10 +74,12 @@ public class BeverageListFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
+            // Launch Beverage Invitory
             startActivity(BeverageActivity.getIntent(getActivity(),mBeverage.getItemNumber()));
         }
     }
 
+    //RecyclerView Adapter
     private class beverageAdapter extends  RecyclerView.Adapter
     {
 
@@ -106,10 +108,15 @@ public class BeverageListFragment extends Fragment {
             ((beverageHolder) holder).mNumberTextView.setText(bev.getItemNumber());
             ((beverageHolder) holder).mPosition = position;
         }
-
         @Override
         public int getItemCount() {
             return mBeverages.size();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateView();
     }
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 /**
  * Created by grant on 10/24/16.
+ * Singleton contains bevarage ArrayList
  */
 
 public class BeverageInventory {
@@ -25,6 +26,7 @@ public class BeverageInventory {
         setInvitory();
     }
 
+    //reads in the csv, formats it, and then sets it to the invitory
     private void setInvitory()
     {
         try {
@@ -44,14 +46,17 @@ public class BeverageInventory {
         }
 
     }
-    
+
+
+    //sends the instace of beverage invitory or creates a new one
     public static BeverageInventory getBeverageInventory(Context context)
     {
         if(theBeverageInventory == null)
             return new BeverageInventory(context);
         return theBeverageInventory;
     }
-    
+
+    //returns a beverage from the invitory
     public Beverage getBeverage(String ID){
         for (Beverage b:mInvitory)
         {
@@ -60,17 +65,17 @@ public class BeverageInventory {
         }
         return null;
     }
-    
+
+    //returns the Beverage arrayList
     public ArrayList<Beverage> getInvitory()
     {
         return mInvitory;
     }
-    
+    //adds a new bevarage
     public void addBeverage(Beverage bev)
     {
         mInvitory.add(bev);
     }
-    
     public void removeBeverage(String ID){
         for (Beverage b:mInvitory)
         {

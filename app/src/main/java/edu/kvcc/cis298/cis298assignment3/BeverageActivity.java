@@ -23,6 +23,7 @@ public class BeverageActivity extends FragmentActivity{
     private BeverageInventory mBeverageInventory;
     private static final String EXTRA_BEVERAGE_NUMBER = "edu.kvcc.cis298.cis289assignment3.beveragenumber";
 
+    //creates intent for launching Activity
     public static Intent getIntent(Context context, String ProductNumber){
         Intent creationIntent = new Intent(context,BeverageActivity.class);
         creationIntent.putExtra(EXTRA_BEVERAGE_NUMBER,ProductNumber);
@@ -36,6 +37,7 @@ public class BeverageActivity extends FragmentActivity{
         mBeverageInventory = BeverageInventory.getBeverageInventory(this);
         String bevNumber = getIntent().getStringExtra(EXTRA_BEVERAGE_NUMBER);
 
+        //creating view pager
         mViewPager = (ViewPager) findViewById(R.id.bev_pager_view);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
